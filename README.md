@@ -88,7 +88,7 @@ A continuación, nos permite seleccionar la generación, **la primera generació
 
 ![Generaciones](img/2_administrador_hyper-v/1_creacion_maquinas_virtuales/screenshot_11.png)
 
-El siguiente paso es indicar la cantidad de memoria RAM que vamos a destinar a la máquina, también podemos marcar o desmarcar la opción **Usar memoria dinámica para esta máquina virtual** que permite a la máquina coger más memoria RAM si la necesitara durante el transcurso de su ejecución.
+El siguiente paso es indicar la cantidad de memoria RAM que vamos a destinar a la máquina, también podemos marcar o desmarcar la opción **Usar memoria dinámica para esta máquina virtual** que permite a la máquina coger más memoria RAM si la necesitara durante el transcurso de su ejecución hasta un máximo establecido en la máquina virtual.
 
 ![Memoria RAM](img/2_administrador_hyper-v/1_creacion_maquinas_virtuales/screenshot_12.png)
 
@@ -129,141 +129,293 @@ Por último, podemos crear el disco duro con un tamaño, usar un dispositivo rea
 
 ![Configuración del disco](img/2_administrador_hyper-v/1_creacion_maquinas_virtuales/screenshot_20.png)
 
+### Exportación e importación de máquinas virtuales
 
+Con las máquinas virtuales que hemos creado podemos exportarlas e importarlas para llevarlas en una unidad USB o a otro equipo.
 
-![]()
+#### Exportación de una máquina virtual
 
+**Exportaremos la máquina Ubuntu 18.04 a un disco duro externo**, abriremos su menú contextual, click derecho de ratón, y pulsaremos en **Exportar...**
 
+![Comienzo de exportación](img/2_administrador_hyper-v/2_exportacion_importacion_maquinas_virtuales/screenshot_1.png)
 
-![]()
+Después nos saldrá un diálogo indicando que establezcamos la ruta en la que exportaremos la máquina virtual, bien **escribiendo la ruta** o mediante el botón de **Examinar**.
 
+![Ruta de exportación](img/2_administrador_hyper-v/2_exportacion_importacion_maquinas_virtuales/screenshot_2.png)
 
+Justo **en la sexta columna de Máquinas virtuales**, vemos que nos **indica el proceso de exportación**.
 
-![]()
+![Cantidad exportada](img/2_administrador_hyper-v/2_exportacion_importacion_maquinas_virtuales/screenshot_3.png)
 
+#### Importación de una máquina virtual
 
+Para realizar la importación de una máquina, en el panel lateral derecho, pulsaremos en **Importar máquina virtual...**. Se abrirá una ventana e indicaremos la ruta exacta dónde se encuentra la máquina virtual, como antes la hemos exportado a **D:\Exportación Hyper-V\\**, tenemos que hacer referencia esta vez a su directorio, **Ubuntu 18.04 LTS** para poder realizar la importación de la máquina.
 
-![]()
+![Ruta de importación](img/2_administrador_hyper-v/2_exportacion_importacion_maquinas_virtuales/screenshot_4.png)
 
+Nos saldrá la máquina virtual que hemos exportado y la seleccionaremos.
 
+![Seleccionar máquina virtual](img/2_administrador_hyper-v/2_exportacion_importacion_maquinas_virtuales/screenshot_5.png)
 
-![]()
+Tenemos varios tipos de importación, **Registrar**, **Restaurar** y **Copiar la máquina virtual**.
 
++ **Registrar la máquina**: Registra la ubicación de la máquina, quedando en la misma ubicación la máquina virtual.
 
++ **Restaurar la máquina**: Copia la máquina virtual a una ubicación elegida por el usuario.
 
-![]()
++ **Copiar la máquina**: Copia la máquina virtual a una ubicación elegida por el usuario y se genera un nuevo identificador, pudiendo importar la misma máquina varias veces en un mismo equipo.
 
+![Tipo de importación](img/2_administrador_hyper-v/2_exportacion_importacion_maquinas_virtuales/screenshot_6.png)
 
+### Configuración de la máquina virtual
 
-![]()
+Para acceder a la configuración de la máquina, abriremos su menú contextual y pincharemos en **Configuración...**
 
+![Acceso a la configuración](img/2_administrador_hyper-v/3_configuracion_maquina_virtual/screenshot_1.png)
 
+Podemos agregar una controladora SCSI para discos duros, un adaptador de red o un adaptador de canal de fibra óptica.
 
-![]()
+![Agregación del hardware](img/2_administrador_hyper-v/3_configuracion_maquina_virtual/screenshot_2.png)
 
+En la sección de **Firmware** podemos elegir el orden de arranque de la máquina virtual.
 
+![Firmware](img/2_administrador_hyper-v/3_configuracion_maquina_virtual/screenshot_3.png)
 
-![]()
+En **Seguridad** podemos habilitar el arranque seguro para que no se ejecute código no autorizado durante el arranque del sistema operativo de la máquina, también podemos habilitar el TPM e incluso cifrar el estado y el tráfico de migración de la máquina y habilitar el blindaje de la máquina, permite ejecutar la máquina en un host o hosts escogidos.
 
+![Seguridad](img/2_administrador_hyper-v/3_configuracion_maquina_virtual/screenshot_4.png)
 
+De base podemos establecer la memoria máxima que tendrá la máquina virtual, también podemos establecer si usará la característica de memoria dinámica, escogiendo un mínimo y un máximo para su ejecución que será en función de las necesidades de la máquina. También podemos establecer un buffer de memoria para almacenar datos en la memoria. Y por último podemos establecer la prioridad de esta máquina con respecto a otras que se estén ejecutando al mismo momento para la asignación de memoria principal física.
 
-![]()
+![Memoria RAM](img/2_administrador_hyper-v/3_configuracion_maquina_virtual/screenshot_5.png)
 
+En la sección de **Procesador** tenemos la asignación de procesadores virtuales para la máquina y el control de recursos entre las máquinas virtuales que haya en ejecución. Dentro de esta sección tenemos tanto **Compatibilidad** como **NUMA**.
 
+![Procesador](img/2_administrador_hyper-v/3_configuracion_maquina_virtual/screenshot_6.png)
 
-![]()
++ **Compatibilidad**: Limita las características del procesador de la máquina para que nos permita migrar la máquina a otro equipo con una versión distinta de procesador.
 
+![Compatibilidad procesador](img/2_administrador_hyper-v/3_configuracion_maquina_virtual/screenshot_7.png)
 
++ **NUMA**: **Non-Uniform Memory Access** es una arquitectura que se usa cuando algunas regiones de memoria tienen latencias de acceso mayores, esta arquitectura permite alojar en un nodo NUMA la memoria principal de la máquina siempre que haya suficiente espacio permitiendo un incremento del rendimiento del sistema.
 
-![]()
+![NUMA procesador](img/2_administrador_hyper-v/3_configuracion_maquina_virtual/screenshot_8.png)
 
+Podemos añadir varios dispositivos SCSI a la máquina, un disco duro, un DVD o una unidad compartida, también podemos quitar los dispositivos anteriores.
 
+![Controladora SCSI](img/2_administrador_hyper-v/3_configuracion_maquina_virtual/screenshot_9.png)
 
-![]()
+Dentro de la sección **Controladora SCSI** tenemos las **Unidades de disco duro** que nos permite establecer la forma de conexión del disco duro, cambiar su ubicación, crear uno nuevo, modificarlo o ver sus características.
 
+![Unidades de disco duro](img/2_administrador_hyper-v/3_configuracion_maquina_virtual/screenshot_10.png)
 
+Nos permite seleccionar el adaptador de red que necesitemos para nuestra máquina virtual, habilitar la VLAN y el administrador de ancho de banda. Dentro de esta sección disponemos de **Aceleración de hardware** y **Características avanzadas**.
 
-![]()
+![Adaptador de red](img/2_administrador_hyper-v/3_configuracion_maquina_virtual/screenshot_11.png)
 
++ **Aceleración de harware**: Nos permite especificar las tareas de red que se pueden descargar en un adaptador de red físico, como **Virtual Machine Queue** que es un mecanismo para administrar el tráfico de red en la tarjeta de red física, evitando uso de CPU y latencia de red. También tenemos IPSec que es un estándar para otorgar seguridad a la capa 3 de OSI o la capa 2 de TCP/IP.
 
+![Aceleración de hardware](img/2_administrador_hyper-v/3_configuracion_maquina_virtual/Screenshot_12.png)
 
-![]()
++ **Características avanzadas**: Podemos especificar una dirección MAC dinámica para los adaptadores de red, asignar una MAC estática y suplantación de MAC, habilitar protección DHCP, protección de anuncios de enrutador, red protegida, creación de reflejo de puerto para supervisar el tráfico de red mediante la copia de los paquetes entrantes y salientes a otra máquina virtual y la formación de equipos de NIC.
 
+![Características avanzadas](img/2_administrador_hyper-v/3_configuracion_maquina_virtual/screenshot_13.png)
 
+Nos permite activar o desactivar varios servicios integrados como Apagado del sistema operativo, Sincronización de hora, Intercambio de datos, Latido (comprobación del arranque de la máquina), Copia de seguridad y Servicios invitados para poder copiar archivos de una máquina al sistema anfitrión y viceversa.
 
-![]()
+![Servicios de integración](img/2_administrador_hyper-v/3_configuracion_maquina_virtual/screenshot_14.png)
 
+Los puntos de control son instantáneas de la máquina que guardan su estado actual cuando se realiza el punto de control, se puede hacer con la máquina apagada o encendida, podemos establecer puntos de control automáticos y la ubicación de dichos puntos de control.
 
+![Puntos de control](img/2_administrador_hyper-v/3_configuracion_maquina_virtual/screenshot_15.png)
 
-![]()
+El archivo de paginación inteligente **permite el uso de la memoria virtual**, permitiendo que si se queda corta de memoria principal, use el disco duro como almacenamiento para los procesos y se cargue en memoria principal una parte de los procesos. Podemos únicamente establecer la ubicación de dicho archivo.
 
+![Ubicación del archivo de paginación inteligente](img/2_administrador_hyper-v/3_configuracion_maquina_virtual/screenshot_16.png)
 
+Podemos establecer si queremos que la máquina de inicie automáticamente tras un lapso de tiempo, que se ejecute automáticamente si estaba en ejecución durante la detención del servicio y que no se inicie automáticamente.
 
-![]()
+![Acción de inicio automático](img/2_administrador_hyper-v/3_configuracion_maquina_virtual/screenshot_17.png)
 
+Por último tenemos la acción de detención automática que permite apagar, guardar el estado o desconectar la máquina si el equipo se va a apagar.
 
+![Acción de detención automática](img/2_administrador_hyper-v/3_configuracion_maquina_virtual/screenshot_18.png)
 
-![]()
+### Configuración de Hyper-V
 
+Dentro de Hyper-V podemos realizar configuración general sobre el servicio y tenemos las siguientes opciones:
 
++ **Discos duros virtuales**: Nos permite establecer la ruta por defecto para todos los discos duros que creemos.
 
-![]()
+![Discos duros virtuales](img/2_administrador_hyper-v/4_configuracion_hyper-v/screenshot_1.png)
 
++ **Máquinas virtuales**: Nos permite establecer la ubicación de la configuración de la máquina virtual en otro directorio o ruta.
 
+![Máquinas virtuales](img/2_administrador_hyper-v/4_configuracion_hyper-v/screenshot_2.png)
 
-![]()
++ **Expansión de NUMA**: Podemos activar o desactivar la característica para que las máquinas se expandan a nodos NUMA físicos.
 
+![Expansión de NUMA](img/2_administrador_hyper-v/4_configuracion_hyper-v/screenshot_3.png)
 
++ **Migraciones de almacenamiento**: Podemos establecer la cantidad de migraciones simultáneas.
 
-![]()
+![Migración del almacenamiento](img/2_administrador_hyper-v/4_configuracion_hyper-v/screenshot_4.png)
 
++ **Directiva de modo de sesión mejorada**: Podemos activar o desactivar el uso de sesión mejorada que permite el redireccionamiento de dispositivos como unidades USB y recursos del equipo.
 
+![Directiva de modo de sesión mejorada](img/2_administrador_hyper-v/4_configuracion_hyper-v/screenshot_5.png)
 
-![]()
++ **Teclado**: Podemos establecer el uso de algunas teclas de Windows para que se usen únicamente en el equipo físico, en máquina virtual o en máquina virtual con pantalla completa.
 
+![Teclado](img/2_administrador_hyper-v/4_configuracion_hyper-v/screenshot_6.png)
 
++ **Combinación de teclas de liberación**: Podemos escoger alguna combinación de la lista para cuando no haya disponible un ratón.
 
-![]()
+![Combinación de teclas de liberación](img/2_administrador_hyper-v/4_configuracion_hyper-v/screenshot_7.png)
 
++ **Modo de sesión mejorada**: Podemos establecer si queremos usar la sesión mejorada o no.
 
+![Modo de sesión mejorada](img/2_administrador_hyper-v/4_configuracion_hyper-v/screenshot_8.png)
 
-![]()
+### Administrador de conmutadores virtuales
 
+Hyper-V nos permite crear y quitar conmutadores de red o cambiar su configuración para adecuarla a las necesidades de la máquina virtual.
 
+Por defecto tenemos un Switch virtual que no dispone de conexión fuera de una red interna ya que únicamente su ámbito es la comunicación local entre las máquinas y el equipo anfitrión. 
 
-![]()
+![Default Switch](img/2_administrador_hyper-v/5_conmutadores_virtuales/screenshot_1.png)
 
+Podemos establecer un rango de direcciones MAC para las máquinas que tengan la configuración dinámica de dirección MAC.
 
+![Intervalo de direcciones MAC](img/2_administrador_hyper-v/5_conmutadores_virtuales/screenshot_2.png)
 
-![]()
+Para crear un conmutador de red, pincharemos en **Nuevo conmutador de red virtual**, nos da tres opciones para el conmutador, **Externa** para proporcionar acceso a la red física y tener conectividad, **Interna** para comunicación entre las máquinas y el equipo anfitrión y **Privada** que únicamente la comunicación es entre las máquinas virtuales. Una vez sepamos el tipo de conmutador, pulsaremos en el botón **Crear conmutador virtual**.
 
+![Nuevo conmutador de red](img/2_administrador_hyper-v/5_conmutadores_virtuales/screenshot_3.png)
 
+Dentro del nuevo conmutador, podemos establecer el nombre que tendrá, la interfaz de salida si es red externa o los otros dos tipos de conmutadores, también especificar la VLAN a la que pertenecerá.
 
-![]()
+![Creación de conmutador de red](img/2_administrador_hyper-v/5_conmutadores_virtuales/screenshot_4.png)
 
+### Administrador de SAN virtual
 
+Podemos crear un SAN para el almacenamiento mediante un canal de fibra. Para crear el canal, tendremos que pulsar el botón **Crear**.
 
-![]()
+![Creación de SAN virtual](img/2_administrador_hyper-v/6_administrador_san_virtual/screenshot_1.png)
 
+En mi caso, como no tengo puerto de canal de fibra, no puedo realizar un SAN.
 
+![SAN virtual](img/2_administrador_hyper-v/6_administrador_san_virtual/screenshot_2.png)
 
-![]()
+### Editar disco
 
+Nos permite realizar cambios en el disco duro, para ello, escogeremos el disco que queremos cambiar.
 
+![Localización de disco](img/2_administrador_hyper-v/7_editar_disco/screenshot_1.png)
 
-![]()
+Una vez escogido el disco, podemos realizar tres acciones sobre él:
 
++ **Compactarlo**: Nos permite hacer el archivo de disco duro más pequeño, de forma que la capacidad de almacenamiento sigue igual.
 
++ **Convertirlo**: Podemos cambiar su formato mediante la copia del contenido del disco duro a otro disco con distinto formato, VHD o VHDX.
 
-![]()
++ **Expandirlo**: Podemos aumentar la capacidad del disco duro.
 
+![Acción sobre el disco](img/2_administrador_hyper-v/7_editar_disco/screenshot_2.png)
 
+### Inspeccionar disco
 
-![]()
+Nos da información sobre un disco duro en cuestión.
 
+![Datos del disco duro](img/2_administrador_hyper-v/8_inspeccionar_disco/screenshot_1.png)
 
+### Servicio de Hyper-V
 
-![]()
+**Hyper-V es un servicio** de virtualización, por lo que podemos detener el servicio, quitarlo, actualizarlo o iniciarlo.
+
+![Acciones sobre el servicio](img/2_administrador_hyper-v/9_varios/1_servicio/screenshot_1.png)
+
+### Puntos de control
+
+Hyper-V tiene un sistema de puntos de control que nos permite guardar estados de la máquina para posteriormente volver a ellos si fuese necesario, además de otras opciones que veremos un poco después.
+
+Cuando seleccionamos una máquina virtual, justo debajo veremos un apartado, **Puntos de control**, nos permitirá administrar los puntos de control para la máquina virtual.
+
+![Puntos de control](img/2_administrador_hyper-v/9_varios/2_punto_de_control/screenshot_1.png)
+
+Las acciones que podemos realizar sobre los puntos de control son:
+
++ **Aplicar**: Usar un punto de control guardado.
+
++ **Exportar**: Exportar un punto de control a otra ubicación.
+
++ **Cambiar nombre**: Podemos identificar el punto de control mediante otro nombre, como por ejemplo --> Instalación de servidor Apache2
+
++ **Eliminar punto de control**: Podemos eliminar un punto de control que no vayamos a necesitar o que no funcione debido a una configuración incorrecta dentro de la máquina virtual, como por ejemplo **Remove-Item -Path C:\Windows\System32 -Recurse** (con permisos de administrador).
+
++ **Eliminar subárbol de punto de control**: Elimina todos los puntos de control que dependen del punto de control superior borrado.
+
+![Administración de los puntos de control](img/2_administrador_hyper-v/9_varios/2_punto_de_control/screenshot_2.png)
+
+### Conexión a servidor Hyper-V
+
+Como Hyper-V es un servicio, podemos conectarnos a otros equipos o incluso a un Windows Server 2016 o 2019 con el rol de Hyper-V instalado y ejecutar máquinas virtuales remotas, crearlas, configurarlas o eliminarlas. Para conectarnos a otro equipo o a un servidor, tenemos que **abrir el menú contextual del Administrador de Hyper-V** y pinchar en **Conectar al servidor...**
+
+![Conectar a servidor](img/2_administrador_hyper-v/9_varios/3_conexion_servidor/screenshot_1.png)
+
+Veremos que tenemos dos opciones, **Equipo local** y **Otro Equipo**, si escogemos Otro equipo, tendremos que poder su dirección IP o su FQDN directamente o pulsar en el botón **Examinar...** para buscar dicho equipo. También podemos establecer el usuario con el que nos conectaríamos.
+
+![Forma de conexión con el servidor](img/2_administrador_hyper-v/9_varios/3_conexion_servidor/screenshot_2.png)
+
+### Operaciones sobre la máquina virtual
+
+Podemos usar varias acciones sobre una máquina virtual, encendida o apagada.
+
+Empezaremos con la máquina virtual apagada y vemos que hay algunos **botones que están en gris** (deshabilitados debido al estado de la máquina) y otros que no lo están (activados para realizar acciones sobre la máquina).
+
++ **Iniciar**: Es el primer botón "normal" empezando por la izquierda, nos permite iniciar la máquina.
+
++ **Punto de control**: Nos permite realizar un punto de control de la máquina.
+
++ **Revertir**: Podemos usar otro punto de control que tenía la máquina guardado.
+
++ **Compartir**: Nos permite compartir la máquina virtual mediante un formato **.vmcz**.
+
+![Máquina virtual apagada](img/2_administrador_hyper-v/10_operaciones_maquina_virtual/screenshot_1.png)
+
+Al igual que nos pasaba con la máquina apagada, una vez está la máquina encendida disponemos de acciones sobre ella, empezando por la izquierda:
+
++ **Ctrl + Alt + Supr**: Nos permite usar dicha combinación de teclas en la máquina virtual.
+
++ **Desconectar**: Nos permite apagar la máquina de forma bruta, como si quitásemos la batería a un portátil o el cable de corriente de la fuente de alimentación del ordenador.
+
++ **Apagar**.
+
++ **Guardar**: Guarda el estado actual de la máquina.
+
++ **Pausar**.
+
++ **Restablecer**: Reinicia la máquina.
+
++ **Punto de control**.
+
++ **Sesión mejorada**(segundo por la derecha).
+
+![Máquina virtual encendida](img/2_administrador_hyper-v/10_operaciones_maquina_virtual/screenshot_2.png)
+
+En la pestaña **Medios** podemos insertar o expulsar unidades DVD o disquete.
+
+![Medios](img/2_administrador_hyper-v/10_operaciones_maquina_virtual/screenshot_3.png)
+
+En la pestaña **Portapapeles** podemos pasar un texto del portapapeles a la máquina o hacer captura de pantalla.
+
+![Portapapeles](img/2_administrador_hyper-v/10_operaciones_maquina_virtual/screenshot_4.png)
+
+En la pestaña **Ver** podemos poner la pantalla completa, mostrar la barra de herramientas, usar la sesión mejorada o establecer el nivel de zoom.
+
+![Ver](img/2_administrador_hyper-v/10_operaciones_maquina_virtual/screenshot_5.png)
+
+### PXE Boot de máquina virtual
 
 
 
