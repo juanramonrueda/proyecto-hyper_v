@@ -415,8 +415,98 @@ En la pestaña **Ver** podemos poner la pantalla completa, mostrar la barra de h
 
 ![Ver](img/2_administrador_hyper-v/10_operaciones_maquina_virtual/screenshot_5.png)
 
-### PXE Boot de máquina virtual
+### PXE Boot
+
+Crearemos dos máquinas virtuales que se conectarán mediante **AOMEI PXE Boot** y **WDS** para realizar la instalación del sistema operativo IPCop (AOMEI PXE Boot) y Windows 7 (WDS) en las máquinas virtuales.
+
+#### AOMEI PXE Boot
+
+Primero realizaremos el proceso usando AOMEI PXE Boot, para ello hay que descargar **AOMEI Backupper** de prueba de 30 días e instalar el programa, después iremos a **Herramientas** que se encuentra en el panel lateral izquierdo. Buscaremos el apartado **Herramientas de respaldo** y veremos que hay tres opciones la primera **PXE Boot Tool** es la que usaremos ya que es la que viene con la prueba, la buena es la segunda, **Image Deploy** pero no viene con la prueba del programa. Iniciaremos AOMEI PXE Boot Tool y seleccionaremos la opción **Arrancar desde archivo de imagen personalizada** y buscaremos una ISO de poco tamaño y tenemos que evitar que tenga espacios en el nombre, ya que daría problemas. Cuando tengamos la ISO, pulsaremos en el botón **Iniciar servicio** y mientras se iniciar, crearemos la máquina virtual.
+
+Tenemos que usar la opción **Nuevo** para crear la máquina, no Creación rápida, ya que podremos escoger la mayoría de la configuración para la máquina. Es importante escoger el conmutador de red correcto y cuando nos pida escoger el medio de instalación, marcaremos **Instalar un sistema operativo desde un servidor de instalación en red**. Nos tiene que salir algo similar a la imagen.
+
+![Características de la máquina](img/2_administrador_hyper-v/11_pxe_boot/1_aomei_pxe_boot/1_creacion_maquina/screenshot_1.png)
+
+Cuando tengamos la máquina creada, comprobaremos que el servicio está a la espera de conexión e iniciaremos la máquina. Si la configuración de red o el servicio están correctos, debería tener el cliente una dirección IP y tendría que iniciar al poco después la descarga de la ISO.
+
+![Conexión con AOMEI PXE Boot](img/2_administrador_hyper-v/11_pxe_boot/1_aomei_pxe_boot/2_conexion_servidor_PXE_Boot/screenshot_1.png)
+
+En esta siguiente imagen comprobamos que la máquina virtual está conectada al servicio PXE Boot.
+
+![Programa y Máquina virtual](img/2_administrador_hyper-v/11_pxe_boot/1_aomei_pxe_boot/2_conexion_servidor_PXE_Boot/screenshot_2.png)
+
+Cuando termina de descargar la ISO y comprobarla, inicia la instalación del sistema operativo en la máquina virtual.
+
+![Instalación de IPCop](img/2_administrador_hyper-v/11_pxe_boot/1_aomei_pxe_boot/2_conexion_servidor_PXE_Boot/screenshot_3.png)
 
 
+#### WDS
 
-![]()
+Windows Deployment Service permite al igual que la anterior herramienta realizar la instalación de sistemas operativos en red, es un servicio que como veremos un poco más adelante, requiere un servidor de **DNS**, otro de **DHCP** ejecutándose, **NTFS** como sistema de archivos y **Active Directory**. Una vez tengamos todo preparado y configurado, buscaremos el rol de servidor **Servicios de Implementación de Windows** y realizaremos la instalación por defecto del servicio. Cuando esté instalado, abriremos el menú contextual del servidor y pulsaremos en **Configurar servidor**.
+
+![Configurar servicio WDS](img/2_administrador_hyper-v/11_pxe_boot/2_wds_pxe_boot/1_wds_configure/screenshot_1.png)
+
+Cuando se abra el asistente de configuración, veremos primero los requisitos para que WDS funcione.
+
+![Requisitos servicio WDS](img/2_administrador_hyper-v/11_pxe_boot/2_wds_pxe_boot/1_wds_configure/screenshot_2.png)
+
+Tenemos que escoger la opción **Integrado con Active Directory** para que coja todos los servicios que hemos implementado.
+
+![Opciones de instalación](img/2_administrador_hyper-v/11_pxe_boot/2_wds_pxe_boot/1_wds_configure/screenshot_3.png)
+
+Después escogeremos la ruta de ubicación de las imágenes de arranque e instalación, se puede dejar en el disco del sistema o en un segundo disco.
+
+![Ubicación de las imágenes de arranque e instalación](img/2_administrador_hyper-v/11_pxe_boot/2_wds_pxe_boot/1_wds_configure/screenshot_4.png)
+
+En **Servidor proxy DHCP** dejaremos las opciones por defecto.
+
+![Servidor proxy DHCP](img/2_administrador_hyper-v/11_pxe_boot/2_wds_pxe_boot/1_wds_configure/screenshot_5.png)
+
+Escogeremos **Responder a todos los equipos (conocidos y desconocidos)** para que el servicio responda a la máquina virtual que crearemos después y continuaremos por defecto hasta finalizar con el asistente.
+
+![Opciones de respuesta](img/2_administrador_hyper-v/11_pxe_boot/2_wds_pxe_boot/1_wds_configure/screenshot_6.png)
+
+Abriremos el desplegable del servidor y abriremos el menú contextual de **Imágenes de instalación** y seleccionaremos **Agregar imagen de instalación...**
+
+![Agregación de imágenes de instalación](img/2_administrador_hyper-v/11_pxe_boot/2_wds_pxe_boot/1_wds_configure/screenshot_7.png)
+
+Como voy a usar una ISO de Windows 7, al nombre del grupo le pondré un identificador para diferenciarlo de otros.
+
+![Grupo de imágenes](img/2_administrador_hyper-v/11_pxe_boot/2_wds_pxe_boot/1_wds_configure/screenshot_8.png)
+
+Desde **Medios agregaremos la ISO de Windows 7** y pulsaremos en **Examinar**, **buscaremos en la ISO el archivo install.wim**
+
+![Archivo de instalación](img/2_administrador_hyper-v/11_pxe_boot/2_wds_pxe_boot/1_wds_configure/screenshot_9.png)
+
+Vemos que en el archivo hay distintas versiones de Windows 7, podemos seleccionar las que queramos agregar o dejar todas marcadas.
+
+![Imágenes disponibles](img/2_administrador_hyper-v/11_pxe_boot/2_wds_pxe_boot/1_wds_configure/screenshot_10.png)
+
+También tenemos que agregar la imagen de arranque para poder realizar la instalación desde la red, abriremos el menú contextual de **Imágenes de arranque** y pulsaremos en **Agregar imagen de arranque...**
+
+![Agregación de imagen de arranque](img/2_administrador_hyper-v/11_pxe_boot/2_wds_pxe_boot/1_wds_configure/screenshot_11.png)
+
+Al igual que hicimos, buscaremos en la ISO el archivo **boot.wim** que nos permite realizar el arranque.
+
+![Archivo de arranque](img/2_administrador_hyper-v/11_pxe_boot/2_wds_pxe_boot/1_wds_configure/screenshot_12.png)
+
+Por defecto nos pondrá el nombre y la descripción que contiene la imagen de arranque, podemos cambiarlas o dejarlas por defecto. Cuando terminemos de agregar las imágenes, iniciaremos el servicio para poder realizar la instalación de Windows 7 en la máquina virtual que crearemos después, abriremos el menú contextual del servidor y en la opción **Todas las tareas** nos saldrá un desplegable y pincharemos en **Iniciar**.
+
+![Metadatos de imagen](img/2_administrador_hyper-v/11_pxe_boot/2_wds_pxe_boot/1_wds_configure/screenshot_13.png)
+
+Al igual que hicimos con la máquina para AOMEI PXE Boot, crearemos una máquina virtual y le asignaremos un conmutador de red y que la instalación del sistema operativo se realizará desde la red.
+
+![Características de la máquina](img/2_administrador_hyper-v/11_pxe_boot/2_wds_pxe_boot/2_virtual_machine/screenshot_1.png)
+
+Arrancaremos la máquina y vemos que recibe una dirección IP del servicio de DHCP y **nos indica que para arrancar el servicio de red tenemos que pulsar la tecla F12**, si pasa unos pocos segundos y no la pulsamos nos saldrá que PXE Boot está abortado. Cuando pasa esto, tenemos que reiniciar la máquina y estar pendientes del mensaje.
+
+![Arranque de la máquina virtual](img/2_administrador_hyper-v/11_pxe_boot/2_wds_pxe_boot/3_dhcp_connection/screenshot_1.png)
+
+Cuando nos salga de nuevo el mensaje y pulsemos la techa **F12**, se empezará a descargar unos archivos para realizar la instalación en red.
+
+![Descarga de los archivos](img/2_administrador_hyper-v/11_pxe_boot/2_wds_pxe_boot/3_dhcp_connection/screenshot_2.png)
+
+Cuando terminen de descargarse los archivos, accederemos a la instalación del sistema operativo.
+
+![Inicio de la instalación de Windows 7](img/2_administrador_hyper-v/11_pxe_boot/2_wds_pxe_boot/3_dhcp_connection/screenshot_3.png)
+
