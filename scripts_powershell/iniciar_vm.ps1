@@ -6,6 +6,17 @@ function mostrar_vm_apagadas {
 
 
 #---------------------------------------------------------------------------------------------------------
+# Petición de detención de máquina virtual
+function confirmar_inicio_maquina {
+  $confirmacion_inicio = Read-Host '¿Quiere iniciar alguna de las maquinas que estan detenidas? (S/N)'
+
+  if ($confirmacion_inicio -notmatch "S") {
+      exit
+  }
+}
+
+
+#---------------------------------------------------------------------------------------------------------
 # Petición de nombre de máquina virtual
 function pedir_nombre_maquina_encender {
     $script:nombre_maquina = Read-Host 'Introduzca el nombre completo de la maquina que quiere iniciar'
@@ -123,7 +134,11 @@ function iniciar_vm_apagada {
 #---------------------------------------------------------------------------------------------------------
 # Función principal
 function main_encender {
+    Invoke-Expression .\clear_display.ps1
+
     mostrar_vm_apagadas
+
+    confirmar_inicio_maquina
 
     pedir_nombre_maquina_encender
 
