@@ -10,7 +10,7 @@ La virtualización es la **creación de máquinas con sistemas operativos virtua
 
 ### Tipos de hipervisores
 
-Tenemos dos tipos de hipervisores, los tipo 1 y los tipo 2.
+Tenemos dos tipos de hipervisores, los de tipo 1 y los de tipo 2.
 
 + **Hipervisor tipo 1:** También son llamados **hipervisores bare metal**, son los que se ejecutan directamente en el hardware de la máquina que aloja a la máquina virtual y son más rápidos que los hipervisores de tipo 2.
 
@@ -213,9 +213,9 @@ Nos permite seleccionar el adaptador de red que necesitemos para nuestra máquin
 
 ![Adaptador de red](img/2_administrador_hyper-v/3_configuracion_maquina_virtual/screenshot_11.png)
 
-+ **Aceleración de harware**: Nos permite especificar las tareas de red que se pueden descargar en un adaptador de red físico, como **Virtual Machine Queue** que es un mecanismo para administrar el tráfico de red en la tarjeta de red física, evitando uso de CPU y latencia de red. También tenemos IPSec que es un estándar para otorgar seguridad a la capa 3 de OSI o la capa 2 de TCP/IP.
++ **Aceleración de hardware**: Nos permite especificar las tareas de red que se pueden descargar en un adaptador de red físico, como **Virtual Machine Queue** que es un mecanismo para administrar el tráfico de red en la tarjeta de red física, evitando uso de CPU y latencia de red. También tenemos IPSec que es un estándar para otorgar seguridad a la capa 3 de OSI o la capa 2 de TCP/IP.
 
-![Aceleración de hardware](img/2_administrador_hyper-v/3_configuracion_maquina_virtual/Screenshot_12.png)
+![Aceleración de hardware](img/2_administrador_hyper-v/3_configuracion_maquina_virtual/screenshot_12.png)
 
 + **Características avanzadas**: Podemos especificar una dirección MAC dinámica para los adaptadores de red, asignar una MAC estática y suplantación de MAC, habilitar protección DHCP, protección de anuncios de enrutador, red protegida, creación de reflejo de puerto para supervisar el tráfico de red mediante la copia de los paquetes entrantes y salientes a otra máquina virtual y la formación de equipos de NIC.
 
@@ -269,7 +269,7 @@ Dentro de Hyper-V podemos realizar configuración general sobre el servicio y te
 
 ![Teclado](img/2_administrador_hyper-v/4_configuracion_hyper-v/screenshot_6.png)
 
-+ **Combinación de teclas de liberación**: Podemos escoger alguna combinación de la lista para cuando no haya disponible un ratón.
++ **Combinación de teclas de liberación**: Podemos escoger alguna combinación de la lista para para liberar el ratón cuando no hay controladores instalados.
 
 ![Combinación de teclas de liberación](img/2_administrador_hyper-v/4_configuracion_hyper-v/screenshot_7.png)
 
@@ -363,7 +363,7 @@ Como Hyper-V es un servicio, podemos conectarnos a otros equipos o incluso a un 
 
 ![Conectar a servidor](img/2_administrador_hyper-v/9_varios/3_conexion_servidor/screenshot_1.png)
 
-Veremos que tenemos dos opciones, **Equipo local** y **Otro Equipo**, si escogemos Otro equipo, tendremos que poder su dirección IP o su FQDN directamente o pulsar en el botón **Examinar...** para buscar dicho equipo. También podemos establecer el usuario con el que nos conectaríamos.
+Veremos que tenemos dos opciones, **Equipo local** y **Otro Equipo**, si escogemos Otro equipo, tendremos que poner su dirección IP o su FQDN directamente o pulsar en el botón **Examinar...** para buscar dicho equipo. También podemos establecer el usuario con el que nos conectaríamos.
 
 ![Forma de conexión con el servidor](img/2_administrador_hyper-v/9_varios/3_conexion_servidor/screenshot_2.png)
 
