@@ -269,7 +269,7 @@ Dentro de Hyper-V podemos realizar configuración general sobre el servicio y te
 
 ![Teclado](img/2_administrador_hyper-v/4_configuracion_hyper-v/screenshot_6.png)
 
-+ **Combinación de teclas de liberación**: Podemos escoger alguna combinación de la lista para cuando no haya disponible un ratón.
++ **Combinación de teclas de liberación**: Podemos escoger alguna combinación de la lista para para liberar el ratón cuando no hay controladores instalados.
 
 ![Combinación de teclas de liberación](img/2_administrador_hyper-v/4_configuracion_hyper-v/screenshot_7.png)
 
