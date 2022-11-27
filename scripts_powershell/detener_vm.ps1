@@ -24,9 +24,9 @@ function pedir_nombre_maquina_apagar {
 
 
 #--------------------------------------------------------------------------------------------------------------
-# Parada de la máquina virtual mediante confirmación
+# Parada de la máquina virtual
 function detener_vm_activa {
-    Stop-VM -Name $nombre_maquina -Confirm
+    Stop-VM -Name $nombre_maquina
 }
 
 

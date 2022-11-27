@@ -108,7 +108,7 @@ function Connect-VM
           }
           else
           {
-            Write-Verbose "Starting VM '$($vm.Name)'. Skipping, VM is not not in 'off' state."
+            Write-Verbose "Starting VM '$($vm.Name)'. Skipping, VM is not in 'off' state."
           }
         }
 
