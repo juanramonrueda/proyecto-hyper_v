@@ -10,7 +10,7 @@ La virtualización es la **creación de máquinas con sistemas operativos virtua
 
 ### Tipos de hipervisores
 
-Tenemos dos tipos de hipervisores, los tipo 1 y los tipo 2.
+Tenemos dos tipos de hipervisores, los de tipo 1 y los de tipo 2.
 
 + **Hipervisor tipo 1:** También son llamados **hipervisores bare metal**, son los que se ejecutan directamente en el hardware de la máquina que aloja a la máquina virtual y son más rápidos que los hipervisores de tipo 2.
 
