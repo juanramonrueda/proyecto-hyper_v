@@ -13,7 +13,7 @@ function listado_switchs_creados {
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Confirmación para saber si quiere crear un switch nuevo
 function confirmar_creacion_switch {
-    $confirmacion_creacion_switch = Read-Host '¿Quiere crear algún conmutador de red? (S/N)'
+    $confirmacion_creacion_switch = Read-Host '¿Quiere crear algun conmutador de red? (S/N)'
 
   if ($confirmacion_creacion_switch -notmatch "S") {
       exit
