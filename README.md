@@ -363,7 +363,7 @@ Como Hyper-V es un servicio, podemos conectarnos a otros equipos o incluso a un 
 
 ![Conectar a servidor](img/2_administrador_hyper-v/9_varios/3_conexion_servidor/screenshot_1.png)
 
-Veremos que tenemos dos opciones, **Equipo local** y **Otro Equipo**, si escogemos Otro equipo, tendremos que poder su dirección IP o su FQDN directamente o pulsar en el botón **Examinar...** para buscar dicho equipo. También podemos establecer el usuario con el que nos conectaríamos.
+Veremos que tenemos dos opciones, **Equipo local** y **Otro Equipo**, si escogemos Otro equipo, tendremos que poner su dirección IP o su FQDN directamente o pulsar en el botón **Examinar...** para buscar dicho equipo. También podemos establecer el usuario con el que nos conectaríamos.
 
 ![Forma de conexión con el servidor](img/2_administrador_hyper-v/9_varios/3_conexion_servidor/screenshot_2.png)
 
