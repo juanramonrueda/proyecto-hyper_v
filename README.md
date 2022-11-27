@@ -213,7 +213,7 @@ Nos permite seleccionar el adaptador de red que necesitemos para nuestra máquin
 
 ![Adaptador de red](img/2_administrador_hyper-v/3_configuracion_maquina_virtual/screenshot_11.png)
 
-+ **Aceleración de harware**: Nos permite especificar las tareas de red que se pueden descargar en un adaptador de red físico, como **Virtual Machine Queue** que es un mecanismo para administrar el tráfico de red en la tarjeta de red física, evitando uso de CPU y latencia de red. También tenemos IPSec que es un estándar para otorgar seguridad a la capa 3 de OSI o la capa 2 de TCP/IP.
++ **Aceleración de hardware**: Nos permite especificar las tareas de red que se pueden descargar en un adaptador de red físico, como **Virtual Machine Queue** que es un mecanismo para administrar el tráfico de red en la tarjeta de red física, evitando uso de CPU y latencia de red. También tenemos IPSec que es un estándar para otorgar seguridad a la capa 3 de OSI o la capa 2 de TCP/IP.
 
 ![Aceleración de hardware](img/2_administrador_hyper-v/3_configuracion_maquina_virtual/screenshot_12.png)
 
